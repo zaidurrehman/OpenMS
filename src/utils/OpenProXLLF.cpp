@@ -429,11 +429,11 @@ protected:
 
 //    double threshold_multiplier = 1.5;
 
-//#ifdef _OPENMP
-//#pragma omp parallel for
-//#endif
-//    for (Size exp_index = 0; exp_index < exp.size(); ++exp_index)
-//    {
+#ifdef _OPENMP
+#pragma omp parallel for
+#endif
+    for (SignedSize exp_index = 0; exp_index < static_cast<SignedSize>(exp.size()); ++exp_index)
+    {
 //#ifdef _OPENMP
 //#pragma omp critical
 //#endif
@@ -1849,7 +1849,7 @@ protected:
 #ifdef _OPENMP
 #pragma omp parallel for schedule(guided)
 #endif
-    for (Size scan_index = 0; scan_index < spectra.size(); ++scan_index)
+    for (SignedSize scan_index = 0; scan_index < static_cast<SignedSize>(spectra.size()); ++scan_index)
     {
 
       const PeakSpectrum& spectrum = spectra[scan_index];
