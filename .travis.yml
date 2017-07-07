@@ -4,5 +4,5 @@ dist: trusty
 
 before_install:
 - svn co https://github.com/OpenMS/dockerfiles/branches/qt5-travis/travis
-- docker build Dockerfile-qt5-travis
+- docker build travis/
 
