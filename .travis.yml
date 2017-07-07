@@ -2,28 +2,7 @@ sudo: required
 language: cpp
 dist: trusty
 
-## Since travis is not able to update their docu... https://github.com/travis-ci/travis-ci/issues/7905
-#services:
-#  - docker
-
 before_install:
-- docker pull hroest/openms_dependencies:qt5-v1.1
-- docker run hroest/openms_dependencies:qt5-v1.1 /bin/bash -c "apt-get -y update ; apt-get -y install xvfb ; ( Xvfb :1 -screen 0 1024x768x24 & ) ; export DISPLAY=:1"
-         
-before_script:
-  ./tools/travis/cibuild.before.sh
-script:
-  ./tools/travis/cibuild.sh
-
-#second we exclude those that are redundant, don't make sense or take too long
-matrix:
-  include:
-    - env: ENABLE_STYLE_TESTING=ON WITH_GUI=ON 
-
-## gcc tests class and TOPP tests (if we run into a time limit, we can split it)
-## PP Wavelet is turned off due to unstable behavior ... 
-    - env: ENABLE_STYLE_TESTING=OFF ENABLE_TOPP_TESTING=ON ENABLE_CLASS_TESTING=ON WITH_GUI=ON ADDRESS_SANITIZER=Off BUILD_TYPE=Release
-
-## clang tests class and TOPP tests: without gui and without address sanitizer (debug build)
-    - env: ENABLE_STYLE_TESTING=OFF WITH_GUI=OFF ENABLE_TOPP_TESTING=ON ENABLE_CLASS_TESTING=ON ADDRESS_SANITIZER=Off BUILD_TYPE=Debug
+- svn co https://github.com/OpenMS/dockerfiles/branches/qt5-travis/travis
+- docker build Dockerfile-qt5-travis
 
