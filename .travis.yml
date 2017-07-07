@@ -1,8 +1,10 @@
 sudo: required
 language: cpp
+dist: trusty
 
-services:
-  - docker
+## Since travis is not able to update their docu... https://github.com/travis-ci/travis-ci/issues/7905
+#services:
+#  - docker
 
 before_install:
 - docker pull hroest/openms_dependencies:qt5-v1.1
