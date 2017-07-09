@@ -3,7 +3,7 @@ language: cpp
 dist: trusty
 
 before_install:
-- svn co https://github.com/OpenMS/dockerfiles/branches/qt5-travis/travis
+- svn co https://github.com/OpenMS/dockerfiles/trunk/travis
 - docker build -t openms/qt5 -f travis/Dockerfile-qt5-travis .
 
 script:
