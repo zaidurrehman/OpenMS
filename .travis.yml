@@ -15,7 +15,7 @@ script:
   TRAVIS_COMMIT -e
   CXX -e
   "ENABLE_CLASS_TESTING=ON" -e
-  "ENABLE_TOPP_TESTING=ON" -e
+  "ENABLE_TOPP_TESTING=ON"
   openms/qt5
   ./tools/travis/docker-cibuild.sh
 
