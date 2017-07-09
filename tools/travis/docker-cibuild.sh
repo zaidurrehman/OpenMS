@@ -70,7 +70,7 @@ QT_ENV_SCRIPT=$(find /opt -name 'qt*-env.sh')
 source $QT_ENV_SCRIPT
 
 # set folder for preinstalled libraries
-export OS_PREFIX_PATH=/usr
+export OS_PREFIX_PATH="/contrib-build;/usr;/usr/local"
 ctest -V -S tools/travis/cibuild.cmake
 
 # tell the user where he can find the results
