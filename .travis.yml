@@ -7,5 +7,5 @@ before_install:
 - docker build -t openms/qt5 -f travis/Dockerfile-qt5-travis .
 
 script:
-- docker run openms/qt5 ./tools/travis/lnx_cibuild.sh
+- docker run openms/qt5 ./tools/travis/lnx-cibuild.sh
 
