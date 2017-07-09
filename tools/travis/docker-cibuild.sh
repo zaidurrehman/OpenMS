@@ -48,6 +48,11 @@ fi
 # we will use this in the CMake script
 export BUILD_NAME=${_build_name}
 
+# we need an X-server for building the documentation and some tests
+# so we start xvfb
+export DISPLAY=:1
+/usr/bin/Xvfb :1 -screen 0 1024x768x24
+
 # add third-party binaries (e.g. search engines) to PATH
 export PATH=${SOURCE_DIRECTORY}/_thirdparty/MyriMatch:$PATH
 export PATH=${SOURCE_DIRECTORY}/_thirdparty/OMSSA:$PATH
@@ -60,6 +65,9 @@ export PATH=${SOURCE_DIRECTORY}/_thirdparty/Comet:$PATH
 if [ "$ENABLE_STYLE_TESTING" = "ON" ]; then
   export PATH=${SOURCE_DIRECTORY}/cppcheck:$PATH
 fi
+
+QT_ENV_SCRIPT=$(find /opt -name 'qt*-env.sh')
+source $QT_ENV_SCRIPT
 
 # set folder for preinstalled libraries
 export OS_PREFIX_PATH=/usr
