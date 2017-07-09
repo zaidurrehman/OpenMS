@@ -51,7 +51,7 @@ export BUILD_NAME=${_build_name}
 # we need an X-server for building the documentation and some tests
 # so we start xvfb
 export DISPLAY=:1
-/usr/bin/Xvfb :1 -screen 0 1024x768x24
+/usr/bin/Xvfb :1 -screen 0 1024x768x24 &
 
 # add third-party binaries (e.g. search engines) to PATH
 export PATH=${SOURCE_DIRECTORY}/_thirdparty/MyriMatch:$PATH
