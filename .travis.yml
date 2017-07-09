@@ -4,5 +4,8 @@ dist: trusty
 
 before_install:
 - svn co https://github.com/OpenMS/dockerfiles/branches/qt5-travis/travis
-- docker build -f travis/Dockerfile-qt5-travis .
+- docker build -t openms/qt5 -f travis/Dockerfile-qt5-travis .
+
+script:
+- docker run openms/qt5 ./tools/travis/lnx_cibuild.sh
 
