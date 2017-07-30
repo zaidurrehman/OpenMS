@@ -52,16 +52,12 @@ pxd_files = glob.glob(src_pyopenms + "/pxds/*.pxd")
 addons = glob.glob(src_pyopenms + "/addons/*.pyx")
 converters = [j(src_pyopenms, "converters")]
 
-
 persisted_data_path = "include_dir.bin"
 
-extra_cimports = [  # "from libc.stdint cimport *",
-    #"from libc.stddef cimport *",
-    #"from UniqueIdInterface cimport setUniqueId as _setUniqueId",
-    #"from Map cimport Map as _Map",
-    #"cimport numpy as np"
-]
+extra_cimports = []
 
+# We need to parse them all together but keep the association about which class
+# we found in which file (as they often need to be analyzed together)
 decls, instance_map = autowrap.parse(pxd_files, ".", num_processes=int(PY_NUM_THREADS))
 
 # Perform mapping
