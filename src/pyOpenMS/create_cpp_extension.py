@@ -88,7 +88,7 @@ for d in decls:
 # Split into chunks based on pxd files and store the mapping to decls, addons
 # and actual pxd files in a hash
 pxd_files_chunk = chunkIt(list(pxd_decl_mapping.keys()), PY_NUM_MODULES)
-mnames = ["pyopenms_%s" % (k+1) for k in range(PY_NUM_MODULES)]
+mnames = ["pyopenms_%s" % (k+1) for k in range(int(PY_NUM_MODULES))]
 allDecl_mapping = {}
 for pxd_f, m in zip(pxd_files_chunk, mnames):
     tmp_decls = []
@@ -184,6 +184,12 @@ if True:
 pickle.dump(autowrap_include_dirs, open(persisted_data_path, "wb"))
 
 print("created pyopenms.cpp")
+
+
+with open("pyopenms/all_modules.py", "w") as fp:
+    for modname in mnames:
+        fp.write("from .%s import *" % modname)
+
 
 # create version information
 version = OPEN_MS_VERSION

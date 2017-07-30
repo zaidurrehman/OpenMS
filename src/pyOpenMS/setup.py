@@ -125,7 +125,7 @@ if IS_DEBUG:
 extra_link_args.append("-std=c++11")
 extra_compile_args.append("-std=c++11")
 
-mnames = ["pyopenms_%s" % (k+1) for k in range(PY_NUM_MODULES)]
+mnames = ["pyopenms_%s" % (k+1) for k in range(int(PY_NUM_MODULES))]
 ext = []
 for module in mnames:
 
