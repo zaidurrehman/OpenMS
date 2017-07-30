@@ -1,4 +1,8 @@
 from String cimport String as _String
+cdef shared_ptr[_String] convString(argument_var)
+
+
+
 cdef inline shared_ptr[_String] convString(argument_var):
     # Generic function to convert Python strings to OpenMS::String
     # 
