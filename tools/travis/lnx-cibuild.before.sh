@@ -15,6 +15,17 @@ function build_contrib {
   fi
 }
 
+pip install -U setuptools
+pip install -U pip
+pip install -U nose
+pip install -U numpy
+pip install -U wheel
+
+git clone -b feature/pxd_files https://git@github.com/hroest/autowrap.git
+pushd autowrap
+python setup.py install
+popd
+
 # fetch contrib and build seqan
 git clone git://github.com/OpenMS/contrib/
 pushd contrib
