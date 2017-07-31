@@ -20,6 +20,7 @@ pip install -U pip
 pip install -U nose
 pip install -U numpy
 pip install -U wheel
+pip install -U Cython
 
 git clone -b feature/pxd_files https://git@github.com/hroest/autowrap.git
 pushd autowrap
