@@ -13,7 +13,7 @@ cdef extern from "<OpenMS/ANALYSIS/DECHARGING/MetaboliteFeatureDeconvolution.h>"
         #  DefaultParamHandler
         MetaboliteFeatureDeconvolution() nogil except +
         MetaboliteFeatureDeconvolution(MetaboliteFeatureDeconvolution) nogil except +
-        void compute(FeatureMapType & fm_in, FeatureMapType & fm_out, ConsensusMap & cons_map, ConsensusMap & cons_map_p) nogil except +
+        void compute(FeatureMap & fm_in, FeatureMap & fm_out, ConsensusMap & cons_map, ConsensusMap & cons_map_p) nogil except +
 
 cdef extern from "<OpenMS/ANALYSIS/DECHARGING/MetaboliteFeatureDeconvolution.h>" namespace "OpenMS::MetaboliteFeatureDeconvolution":
     cdef enum CHARGEMODE "OpenMS::MetaboliteFeatureDeconvolution::CHARGEMODE":

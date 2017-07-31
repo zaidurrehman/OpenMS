@@ -105,7 +105,7 @@ cdef extern from "<OpenMS/FILTERING/ID/IDFilter.h>" namespace "OpenMS::IDFilter"
         #    IDFilter
         DigestionFilter() nogil except +
         DigestionFilter(DigestionFilter) nogil except + #wrap-ignore
-        GetMatchingItems[ PeptideEvidence, FASTAEntry ] accession_resolver_
+        # GetMatchingItems[ PeptideEvidence, FASTAEntry ] accession_resolver_
         EnzymaticDigestion  digestion_
         bool ignore_missed_cleavages_
         bool methionine_cleavage_
@@ -114,6 +114,6 @@ cdef extern from "<OpenMS/FILTERING/ID/IDFilter.h>" namespace "OpenMS::IDFilter"
                         bool ignore_missed_cleavages,
                         bool methionine_cleavage) nogil except +
 
-        bool operator()(PeptideEvidence & evidence) nogil except +
+        # bool operator()(PeptideEvidence & evidence) nogil except +
         void filterPeptideEvidences(libcpp_vector[ PeptideIdentification ] & peptides) nogil except +
 
