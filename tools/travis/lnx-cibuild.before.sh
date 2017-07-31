@@ -15,17 +15,21 @@ function build_contrib {
   fi
 }
 
-pip install -U setuptools
-pip install -U pip
-pip install -U nose
-pip install -U numpy
-pip install -U wheel
-pip install -U Cython
+/usr/bin/pip install -U setuptools
+/usr/bin/pip install -U pip
+/usr/bin/pip install -U nose
+/usr/bin/pip install -U numpy
+/usr/bin/pip install -U wheel
+/usr/bin/pip install -U Cython
 
 git clone -b feature/pxd_files https://git@github.com/hroest/autowrap.git
 pushd autowrap
-python setup.py install
+/usr/bin/python setup.py install
 popd
+
+
+/usr/bin/python -c "import autowrap; print autowrap"
+/usr/bin/python -c "import Cython; print Cython"
 
 # fetch contrib and build seqan
 git clone git://github.com/OpenMS/contrib/
