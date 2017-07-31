@@ -32,3 +32,17 @@ cdef extern from "<OpenMS/ANALYSIS/ID/AccurateMassSearchEngine.h>" namespace "Op
         void run(ConsensusMap&, MzTab&) nogil except +
 
         void init() nogil except +
+
+
+cdef extern from "<OpenMS/ANALYSIS/ID/AccurateMassSearchEngine.h>" namespace "OpenMS":
+    
+    cdef cppclass AdductInfo "OpenMS::AdductInfo":
+        AdductInfo(AdductInfo) nogil except + #wrap-ignore
+        AdductInfo(String & name, EmpiricalFormula & adduct, int charge, UInt mol_multiplier) nogil except +
+        double getNeutralMass(double observed_mz) nogil except +
+        double getMZ(double neutral_mass) nogil except +
+        bool isCompatible(EmpiricalFormula db_entry) nogil except +
+        int getCharge() nogil except +
+        String  getName() nogil except +
+        AdductInfo parseAdductString(String & adduct) nogil except +
+
