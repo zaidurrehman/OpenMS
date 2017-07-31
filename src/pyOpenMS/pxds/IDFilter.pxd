@@ -103,12 +103,14 @@ cdef extern from "<OpenMS/FILTERING/ID/IDFilter.h>" namespace "OpenMS::IDFilter"
     cdef cppclass DigestionFilter "OpenMS::IDFilter::DigestionFilter":
         # wrap-attach:
         #    IDFilter
-        DigestionFilter() nogil except +
+        DigestionFilter() nogil except + # wrap-ignore
         DigestionFilter(DigestionFilter) nogil except + #wrap-ignore
+
         # GetMatchingItems[ PeptideEvidence, FASTAEntry ] accession_resolver_
-        EnzymaticDigestion  digestion_
+        EnzymaticDigestion digestion_
         bool ignore_missed_cleavages_
         bool methionine_cleavage_
+
         DigestionFilter(libcpp_vector[ FASTAEntry ] & entries, 
                         EnzymaticDigestion & digestion,
                         bool ignore_missed_cleavages,
